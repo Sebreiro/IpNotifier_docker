@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  ipnotifier:
+    image: sebreiro/ip_notifier:1.1
+    container_name: ip_notifier
+    restart: unless-stopped
+    volumes:
+      - /home/ipnotifier/Config:/app/Config      
+    networks:
+      - tmbs_network
+
+networks:
+  tmbs_network:
+    name: tmbs_network
+    driver: bridge
